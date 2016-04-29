@@ -1,0 +1,116 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'bootstrap-sass' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose install initial load of /Applications/MAMP/htdocs/p4/package.json
+5 verbose readDependencies loading dependencies from /Applications/MAMP/htdocs/p4/package.json
+6 silly cache add args [ 'bootstrap-sass@^3.0.0', null ]
+7 verbose cache add spec bootstrap-sass@^3.0.0
+8 silly cache add parsed spec { raw: 'bootstrap-sass@^3.0.0',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'bootstrap-sass',
+8 silly cache add   rawSpec: '^3.0.0',
+8 silly cache add   spec: '>=3.0.0 <4.0.0',
+8 silly cache add   type: 'range' }
+9 silly addNamed bootstrap-sass@>=3.0.0 <4.0.0
+10 verbose addNamed ">=3.0.0 <4.0.0" is a valid semver range for bootstrap-sass
+11 silly addNameRange { name: 'bootstrap-sass',
+11 silly addNameRange   range: '>=3.0.0 <4.0.0',
+11 silly addNameRange   hasData: false }
+12 silly mapToRegistry name bootstrap-sass
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/bootstrap-sass
+16 verbose addNameRange registry:https://registry.npmjs.org/bootstrap-sass not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/bootstrap-sass
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 9:28:58 PM
+20 verbose request id 70e9008959cce091
+21 verbose etag "D4AIDYDJ7WLZ5QH6M6FBNV7U1"
+22 http request GET https://registry.npmjs.org/bootstrap-sass
+23 http 304 https://registry.npmjs.org/bootstrap-sass
+24 silly get cb [ 304,
+24 silly get   { date: 'Fri, 29 Apr 2016 01:28:59 GMT',
+24 silly get     via: '1.1 varnish',
+24 silly get     'cache-control': 'max-age=300',
+24 silly get     etag: '"D4AIDYDJ7WLZ5QH6M6FBNV7U1"',
+24 silly get     age: '94',
+24 silly get     connection: 'keep-alive',
+24 silly get     'x-served-by': 'cache-atl6225-ATL',
+24 silly get     'x-cache': 'HIT',
+24 silly get     'x-cache-hits': '1',
+24 silly get     'x-timer': 'S1461893339.058489,VS0,VE0',
+24 silly get     vary: 'Accept-Encoding' } ]
+25 verbose etag https://registry.npmjs.org/bootstrap-sass from cache
+26 verbose get saving bootstrap-sass to /Users/damilareoladosu/.npm/registry.npmjs.org/bootstrap-sass/.cache.json
+27 silly addNameRange number 2 { name: 'bootstrap-sass',
+27 silly addNameRange   range: '>=3.0.0 <4.0.0',
+27 silly addNameRange   hasData: true }
+28 silly addNameRange versions [ 'bootstrap-sass',
+28 silly addNameRange   [ '2.3.2',
+28 silly addNameRange     '3.1.1',
+28 silly addNameRange     '3.2.0',
+28 silly addNameRange     '3.3.0',
+28 silly addNameRange     '3.3.1',
+28 silly addNameRange     '3.3.2',
+28 silly addNameRange     '3.3.3',
+28 silly addNameRange     '3.3.4',
+28 silly addNameRange     '3.3.5',
+28 silly addNameRange     '3.3.6' ] ]
+29 silly addNamed bootstrap-sass@3.3.6
+30 verbose addNamed "3.3.6" is a plain semver version for bootstrap-sass
+31 silly cache afterAdd bootstrap-sass@3.3.6
+32 verbose afterAdd /Users/damilareoladosu/.npm/bootstrap-sass/3.3.6/package/package.json not in flight; writing
+33 verbose afterAdd /Users/damilareoladosu/.npm/bootstrap-sass/3.3.6/package/package.json written
+34 silly install resolved [ { name: 'bootstrap-sass',
+34 silly install resolved     version: '3.3.6',
+34 silly install resolved     description: 'bootstrap-sass is a Sass-powered version of Bootstrap 3, ready to drop right into your Sass powered applications.',
+34 silly install resolved     main: 'assets/javascripts/bootstrap.js',
+34 silly install resolved     repository: { type: 'git', url: 'git://github.com/twbs/bootstrap-sass.git' },
+34 silly install resolved     keywords: [ 'bootstrap', 'sass', 'css' ],
+34 silly install resolved     contributors: [ [Object], [Object], [Object], [Object] ],
+34 silly install resolved     license: 'MIT',
+34 silly install resolved     bugs: { url: 'https://github.com/twbs/bootstrap-sass/issues' },
+34 silly install resolved     devDependencies: { 'node-sass': '~3.4.2', mincer: '~1.3', ejs: '~2.3' },
+34 silly install resolved     gitHead: 'a73cc0f0e5c794206e9a70bc0b67e67cf37c1bca',
+34 silly install resolved     homepage: 'https://github.com/twbs/bootstrap-sass#readme',
+34 silly install resolved     _id: 'bootstrap-sass@3.3.6',
+34 silly install resolved     scripts: {},
+34 silly install resolved     _shasum: '363b0d300e868d3e70134c1a742bb17288444fd1',
+34 silly install resolved     _from: 'bootstrap-sass@>=3.0.0 <4.0.0',
+34 silly install resolved     _npmVersion: '2.11.2',
+34 silly install resolved     _nodeVersion: '0.12.6',
+34 silly install resolved     _npmUser: { name: 'glebm', email: 'glex.spb@gmail.com' },
+34 silly install resolved     dist:
+34 silly install resolved      { shasum: '363b0d300e868d3e70134c1a742bb17288444fd1',
+34 silly install resolved        tarball: 'https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz' },
+34 silly install resolved     maintainers: [ [Object], [Object] ],
+34 silly install resolved     directories: {},
+34 silly install resolved     _resolved: 'https://registry.npmjs.org/bootstrap-sass/-/bootstrap-sass-3.3.6.tgz',
+34 silly install resolved     readme: 'ERROR: No README data found!' } ]
+35 info install bootstrap-sass@3.3.6 into /Applications/MAMP/htdocs/p4
+36 info installOne bootstrap-sass@3.3.6
+37 verbose installOne of bootstrap-sass to /Applications/MAMP/htdocs/p4 not in flight; installing
+38 warn locking Error: EACCES, open '/Users/damilareoladosu/.npm/_locks/bootstrap-sass-48f36abec502bd4f.lock'
+38 warn locking     at Error (native)
+38 warn locking  /Users/damilareoladosu/.npm/_locks/bootstrap-sass-48f36abec502bd4f.lock failed { [Error: EACCES, open '/Users/damilareoladosu/.npm/_locks/bootstrap-sass-48f36abec502bd4f.lock']
+38 warn locking   errno: -13,
+38 warn locking   code: 'EACCES',
+38 warn locking   path: '/Users/damilareoladosu/.npm/_locks/bootstrap-sass-48f36abec502bd4f.lock' }
+39 verbose stack Error: Attempt to unlock /Applications/MAMP/htdocs/p4/node_modules/bootstrap-sass, which hasn't been locked
+39 verbose stack     at unlock (/usr/local/lib/node_modules/npm/lib/utils/locker.js:66:11)
+39 verbose stack     at cb (/usr/local/lib/node_modules/npm/lib/install.js:1017:5)
+39 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:1021:20
+39 verbose stack     at /usr/local/lib/node_modules/npm/lib/utils/locker.js:40:9
+39 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:149:38)
+39 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/lockfile/lockfile.js:177:38
+39 verbose stack     at FSReqWrap.oncomplete (fs.js:95:15)
+40 verbose cwd /Applications/MAMP/htdocs/p4
+41 error Darwin 15.4.0
+42 error argv "node" "/usr/local/bin/npm" "install" "bootstrap-sass"
+43 error node v0.12.7
+44 error npm  v2.11.3
+45 error Attempt to unlock /Applications/MAMP/htdocs/p4/node_modules/bootstrap-sass, which hasn't been locked
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
