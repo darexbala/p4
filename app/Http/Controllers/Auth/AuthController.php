@@ -23,29 +23,32 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
+    protected $loginPath = '/login';
+    protected $redirectAfterLogout = '/';
 
     /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
+    * Where to redirect users after login / registration.
+    *
+    * @var string
+    */
+    protected $redirectTo = '/tasks/index';
+
+    /**
+    * Create a new authentication controller instance.
+    *
+    * @return void
+    */
     public function __construct()
     {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
     /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+    * Get a validator for an incoming registration request.
+    *
+    * @param  array  $data
+    * @return \Illuminate\Contracts\Validation\Validator
+    */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -56,11 +59,11 @@ class AuthController extends Controller
     }
 
     /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
+    * Create a new user instance after a valid registration.
+    *
+    * @param  array  $data
+    * @return User
+    */
     protected function create(array $data)
     {
         return User::create([
@@ -68,5 +71,17 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+    * Log the user out of the application.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function logout()
+    {
+        \Auth::guard($this->getGuard())->logout();
+        \Session::flash('message','You have been logged out.');
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 }
