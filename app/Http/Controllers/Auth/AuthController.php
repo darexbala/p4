@@ -31,7 +31,7 @@ class AuthController extends Controller
     *
     * @var string
     */
-    protected $redirectTo = '/tasks/index';
+    protected $redirectTo = '/tasks';
 
     /**
     * Create a new authentication controller instance.

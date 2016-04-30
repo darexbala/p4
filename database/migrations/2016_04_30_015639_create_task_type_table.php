@@ -12,7 +12,14 @@ class CreateTaskTypeTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('task_type', function (Blueprint $table) {
+
+            $table->increments('id');
+
+            $table->string('name');
+
+            $table->timestamps();
+        });
     }
 
     /**
@@ -22,6 +29,6 @@ class CreateTaskTypeTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('task_type');
     }
 }

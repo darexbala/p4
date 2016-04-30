@@ -11,7 +11,7 @@ DO Project 4 - Home page
 @section('content')
 <div class="jumbotron">
   <h1>Manage your tasks</h1>
-  <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+  <p class="lead">Create your free account to manage your tasks. Features include task types: Routine or Projects, and tasks completion status.</p>
   <p><a class="btn btn-lg btn-success" href="/login" role="button">Login</a></p>
   <p><a class="btn btn-lg btn-success" href="/register" role="button">Sign up</a></p>
 </div>

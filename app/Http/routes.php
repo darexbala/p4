@@ -27,7 +27,10 @@ Route::get('/about', function () {
     return view('welcome');
 });
 
-Route::get('/tasks/index', [
-    'middleware' => 'auth',
-    'uses' => 'TaskController@getIndex'
-]);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/tasks', 'TaskController@getIndex');
+    Route::post('/tasks', 'TaskController@postCreate');
+
+    Route::get('/tasks/{id?}', 'TaskController@getEdit');
+    Route::post('/tasks/edit', 'TaskController@postEdit');
+});
