@@ -18,7 +18,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Do the Laundry',
             'user_id' => $user_id,
             'is_complete' =>false,
-            'task_type_id' => 1
+            'type_id' => 1
         ]);
         $user_id = \App\User::where('name','=','Jill')->pluck('id')->first();;
         DB::table('tasks')->insert([
@@ -27,7 +27,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Grocery shopping',
             'user_id' => $user_id,
             'is_complete' => false,
-            'task_type_id' => 2
+            'type_id' => 2
         ]);
         $user_id = \App\User::where('name','=','Jamal')->pluck('id')->first();;
         DB::table('tasks')->insert([
@@ -36,7 +36,7 @@ class TasksTableSeeder extends Seeder
             'description' => 'Car wash',
             'user_id' => $user_id,
             'is_complete' => false,
-            'task_type_id' => 1
+            'type_id' => 1
         ]);
     }
 }
