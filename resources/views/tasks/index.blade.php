@@ -15,13 +15,23 @@ All books
         {{ csrf_field() }}
 
         <div class="form-group">
-            <label for="task-name" class="col-sm-3 control-label">Add a new Task</label>
+            <label for="description" class="col-sm-3 control-label">Description</label>
 
             <div class="col-sm-6">
-                <input type="text" name="name" id="task-name" class="form-control">
+                <input type="text" name="description" id="description" class="form-control">
             </div>
         </div>
+        <div class="form-group">
+            <label for="type_id" class="col-sm-3 control-label">Type of Task</label>
 
+            <div class="col-sm-6">
+                <select class="form-control" name='type_id' id='type_id'>
+                    @foreach($types_for_dropdown as $type_id => $name)
+                         <option value='{{$type_id}}'>{{$name}}</option>
+                     @endforeach
+                </select>
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-sm-offset-3 col-sm-6">
                 <button type="submit" class="btn btn-default">

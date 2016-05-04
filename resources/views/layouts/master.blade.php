@@ -30,7 +30,7 @@
             @endif
           </ul>
         </nav>
-        <h3 class="text-muted">Task Manager</h3>
+        <h3 class="text-muted"><a href="/">Task Manager</a></h3>
       </div>
       <section>
           @yield('content')

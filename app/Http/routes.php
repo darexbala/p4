@@ -19,13 +19,7 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 
 Route::get('/logout', 'Auth\AuthController@logout');
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/about', function () {
-    return view('welcome');
-});
+Route::get('/', 'TaskController@getIndex');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/tasks', 'TaskController@getIndex');
