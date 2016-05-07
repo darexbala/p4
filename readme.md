@@ -1,10 +1,10 @@
-# Project 3
+# Project 4
 
 ## Live URL
 <http://p4.doladosu.me>
 
 ## Description
-Dynamic Web Applications - Project 4.
+Dynamic Web Applications - Project 4 (Task Manager Application).
 
 ## Demo
 <https://youtu.be/lTqyFzrJ4Gw>

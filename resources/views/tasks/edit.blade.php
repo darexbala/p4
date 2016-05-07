@@ -4,7 +4,7 @@
 @stop
 
 @section('title')
-All books
+    Edit Task {{$task->description}}
 @stop
 
 @section('content')
@@ -32,8 +32,8 @@ All books
             <div class="col-sm-6">
                 <select class="form-control" name='type_id' id='type_id'>
                     @foreach($types_for_dropdown as $type_id => $name)
-                    <?php $selected  = ($task->type_id == $type_id) ? 'SELECTED' : '' ?>
-                    <option value='{{$type_id}}' {{ $selected}}>{{$name}}</option>
+                        <?php $selected  = ($task->type_id == $type_id) ? 'SELECTED' : '' ?>
+                        <option value='{{$type_id}}' {{ $selected}}>{{$name}}</option>
                     @endforeach
                 </select>
             </div>

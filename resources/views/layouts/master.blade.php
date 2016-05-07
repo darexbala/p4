@@ -19,9 +19,10 @@
 </head>
 
 <body>
-    @if(Session::get('message') != 'null')
+    @if(Session::get('message') != '')
         <div class='flash_message'>{{ Session::get('message') }}</div>
     @endif
+    <br />
     <div class="container">
         <div class="header clearfix">
             <nav>

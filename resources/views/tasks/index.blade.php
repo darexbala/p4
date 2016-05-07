@@ -4,7 +4,7 @@
 @stop
 
 @section('title')
-All books
+    Tasks
 @stop
 
 @section('content')

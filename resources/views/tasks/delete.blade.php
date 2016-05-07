@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Delete Task
+    Delete Task {{$task->description}}
 @stop
 
 @section('content')
