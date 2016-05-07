@@ -11,7 +11,9 @@ class TaskController extends Controller {
         if(!\Auth::check()){
             return view('welcome');
         }
-        $tasks = \App\Task::with('Type')->where('user_id', '=',\Auth::id())->get();
+        $tasks = \App\Task::with('Type')->where('user_id', '=',\Auth::id())
+            ->orderBy('is_complete','asc')->get();
+            
         $types_for_dropdown = \App\Type::typesForDropdown();
 
         return view('tasks.index')
@@ -48,8 +50,8 @@ class TaskController extends Controller {
         $types_for_dropdown = \App\Type::typesForDropdown();
 
         return view('tasks.edit')
-            ->with('task',$task)
-            ->with('types_for_dropdown',$types_for_dropdown);
+        ->with('task',$task)
+        ->with('types_for_dropdown',$types_for_dropdown);
     }
 
     public function postEdit(Request $request) {
@@ -57,13 +59,41 @@ class TaskController extends Controller {
             'description' => 'required|min:3',
             'type_id' => 'required'
         ]);
-
         $task = \App\Task::find($request->id);
         $task->description = $request->description;
         $task->type_id = $request->type_id;
+        if($request->is_complete) {
+            if($request->is_complete == 'on') {
+                $task->is_complete = 1;
+            }
+            else{
+                $task->is_complete = 0;
+            }
+        }
+        else{
+            $task->is_complete = 0;
+        }
 
         $task->save();
-        \Session::flash('message','Your changes were saved.');
-        return redirect('/tasks/'.$request->id);
+        \Session::flash('message',$task->description.' was updated.');
+        return redirect('/');
+    }
+
+    public function getConfirmDelete($id = null) {
+        $task = \App\Task::find($id);
+        return view('tasks.delete')->with('task', $task);
+    }
+
+    public function getDelete($id = null) {
+        $task = \App\Task::find($id);
+        if(is_null($task)) {
+            \Session::flash('message','Task not found.');
+            return redirect('/');
+        }
+
+        $task->delete();
+
+        \Session::flash('message',$task->description.' was deleted.');
+        return redirect('/');
     }
 }

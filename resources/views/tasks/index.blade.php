@@ -11,7 +11,7 @@ All books
 
 <div class="panel-body">
 
-    <form action="/tasks" method="POST" class="form-horizontal">
+    <form action="/task/create" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -27,8 +27,8 @@ All books
             <div class="col-sm-6">
                 <select class="form-control" name='type_id' id='type_id'>
                     @foreach($types_for_dropdown as $type_id => $name)
-                         <option value='{{$type_id}}'>{{$name}}</option>
-                     @endforeach
+                    <option value='{{$type_id}}'>{{$name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -43,9 +43,12 @@ All books
     <h1>Tasks</h1>
     <ul class="list-group">
         @foreach($tasks as $task)
-            <li class="list-group-item"><a href="/tasks/{{ $task->id }}" class="badge">Edit</a> {{ $task->description }}</li>
+            <?php $taskType  = ($task->type_id == 2) ? 'project' : '' ?>
+            <?php $complete  = ($task->is_complete == 1) ? 'list-group-item-success' : '' ?>
+            <li class="list-group-item {{$taskType}} {{$complete}}"><a href="/task/confirm-delete/{{ $task->id }}"
+                class="badge">Delete</a><a href="/task/{{ $task->id }}" class="badge">Edit</a> {{ $task->description }}</li>
         @endforeach
-    </ul>
-</div>
+        </ul>
+    </div>
 
-@stop
+    @stop

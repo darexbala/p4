@@ -18,11 +18,11 @@ All books
             <div class='col-sm-6 error'>{{ $errors->first('description') }}</div>
             <div class="col-sm-6">
                 <input
-                    type='text'
-                    id='description'
-                    name='description'
-                    value='{{ $task->description }}'
-                    class="form-control"
+                type='text'
+                id='description'
+                name='description'
+                value='{{ $task->description }}'
+                class="form-control"
                 >
             </div>
         </div>
@@ -32,22 +32,22 @@ All books
             <div class="col-sm-6">
                 <select class="form-control" name='type_id' id='type_id'>
                     @foreach($types_for_dropdown as $type_id => $name)
-                        <?php $selected  = ($task->type_id == $type_id) ? 'SELECTED' : '' ?>
-                        <option value='{{$type_id}}' {{ $selected}}>{{$name}}</option>
+                    <?php $selected  = ($task->type_id == $type_id) ? 'SELECTED' : '' ?>
+                    <option value='{{$type_id}}' {{ $selected}}>{{$name}}</option>
                     @endforeach
                 </select>
             </div>
         </div>
         <div class="form-group">
-            <label for="completed" class="col-sm-3 control-label">Completed?</label>
+            <label for="is_complete" class="col-sm-3 control-label">Completed?</label>
 
             <div class="col-sm-1">
                 <input
-                    type='checkbox'
-                    id='completed'
-                    name='completed'
-                    value='{{ $task->completed }}'
-                    class="form-control"
+                type='checkbox'
+                id='is_complete'
+                name='is_complete'
+                class="form-control"
+                {{ $task->is_complete == 1 ? 'CHECKED' : '' }}
                 >
             </div>
         </div>

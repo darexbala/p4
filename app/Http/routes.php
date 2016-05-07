@@ -17,14 +17,16 @@ Route::post('/login', 'Auth\AuthController@postLogin');
 Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Auth\AuthController@postRegister');
 
-Route::get('/logout', 'Auth\AuthController@logout');
-
 Route::get('/', 'TaskController@getIndex');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/tasks', 'TaskController@getIndex');
-    Route::post('/tasks', 'TaskController@postCreate');
+    Route::post('/task/create', 'TaskController@postCreate');
 
-    Route::get('/tasks/{id?}', 'TaskController@getEdit');
+    Route::get('/task/{id?}', 'TaskController@getEdit');
     Route::post('/task/edit', 'TaskController@postEdit');
+
+    Route::get('/task/confirm-delete/{id?}', 'TaskController@getConfirmDelete');
+    Route::get('/task/delete/{id?}', 'TaskController@getDelete');
+
+    Route::get('/logout', 'Auth\AuthController@logout');
 });
