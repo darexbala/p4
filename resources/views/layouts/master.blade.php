@@ -27,8 +27,8 @@
             <nav>
                 <ul class="nav nav-pills pull-right">
                     @if(Auth::check())
-                    <li role="presentation" class="active"><a href="/">Home</a></li>
-                    <li role="presentation"><a href="/logout">Logout</a></li>
+                    <li role="presentation"><a href="#">Hello {{Auth::user()->name}}</a></li>
+                    <li role="presentation" class="active"><a href="/logout">Logout</a></li>
                     @endif
                 </ul>
             </nav>

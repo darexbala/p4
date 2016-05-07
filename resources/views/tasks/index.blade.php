@@ -10,13 +10,12 @@ All books
 @section('content')
 
 <div class="panel-body">
-
     <form action="/task/create" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
         <div class="form-group">
             <label for="description" class="col-sm-3 control-label">Description</label>
-            <div class='col-sm-6 error'>{{ $errors->first('description') }}</div>
+            <div class='col-sm-6 errors'>{{ $errors->first('description') }}</div>
             <div class="col-sm-6">
                 <input type="text" name="description" id="description" class="form-control">
             </div>
