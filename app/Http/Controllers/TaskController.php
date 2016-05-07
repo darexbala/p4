@@ -11,7 +11,7 @@ class TaskController extends Controller {
         if(!\Auth::check()){
             return view('welcome');
         }
-        $tasks = \App\Task::with('Type')->get();
+        $tasks = \App\Task::with('Type')->where('user_id', '=',\Auth::id())->get();
         $types_for_dropdown = \App\Type::typesForDropdown();
 
         return view('tasks.index')
@@ -24,13 +24,27 @@ class TaskController extends Controller {
             'description' => 'required|min:3',
             'type_id' => 'required'
         ]);
-        $tasks = \App\Task::get();
 
-        return view('tasks.index')->with('tasks',$tasks);
+        $data = $request->only('description','type_id');
+        $data['user_id'] = \Auth::id();
+
+        $task = \App\Task::create($data);
+        $task->save();
+
+        \Session::flash('message','Your book was added.');
+        return redirect('/');
     }
 
     public function getEdit($id) {
         $task = \App\Task::find($id);
+        if(is_null($task)) {
+            \Session::flash('message','Task not found');
+            return redirect('/');
+        }
+        if($task->user_id != \Auth::id()) {
+            \Session::flash('message','You do not have access to edit that Task.');
+            return redirect('/');
+        }
         $types_for_dropdown = \App\Type::typesForDropdown();
 
         return view('tasks.edit')
@@ -43,8 +57,13 @@ class TaskController extends Controller {
             'description' => 'required|min:3',
             'type_id' => 'required'
         ]);
-        $tasks = \App\Task::get();
 
-        return view('tasks.index')->with('tasks',$tasks);
+        $task = \App\Task::find($request->id);
+        $task->description = $request->description;
+        $task->type_id = $request->type_id;
+
+        $task->save();
+        \Session::flash('message','Your changes were saved.');
+        return redirect('/tasks/'.$request->id);
     }
 }

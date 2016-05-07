@@ -10,12 +10,12 @@ All books
 @section('content')
 
 <div class="panel-body">
-    <form action="/tasks" method="POST" class="form-horizontal">
+    <form action="/task/edit" method="POST" class="form-horizontal">
         {{ csrf_field() }}
-
+        <input type="hidden" name='id' value='{{ $task->id }}'>
         <div class="form-group">
             <label for="description" class="col-sm-3 control-label">Description</label>
-
+            <div class='col-sm-6 error'>{{ $errors->first('description') }}</div>
             <div class="col-sm-6">
                 <input
                     type='text'
@@ -60,6 +60,11 @@ All books
                     <i class="fa fa-plus"></i> Cancel
                 </a>
             </div>
+        </div>
+        <div class='error'>
+            @if(count($errors) > 0)
+                Please correct the errors above and try again.
+            @endif
         </div>
     </form>
 </div>

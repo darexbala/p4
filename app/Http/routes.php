@@ -26,5 +26,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/tasks', 'TaskController@postCreate');
 
     Route::get('/tasks/{id?}', 'TaskController@getEdit');
-    Route::post('/tasks/edit', 'TaskController@postEdit');
+    Route::post('/task/edit', 'TaskController@postEdit');
 });
