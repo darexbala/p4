@@ -13,7 +13,7 @@ class TaskController extends Controller {
         }
         $tasks = \App\Task::with('Type')->where('user_id', '=',\Auth::id())
             ->orderBy('is_complete','asc')->get();
-            
+
         $types_for_dropdown = \App\Type::typesForDropdown();
 
         return view('tasks.index')
@@ -81,6 +81,14 @@ class TaskController extends Controller {
 
     public function getConfirmDelete($id = null) {
         $task = \App\Task::find($id);
+        if(is_null($task)) {
+            \Session::flash('message','Task not found');
+            return redirect('/');
+        }
+        if($task->user_id != \Auth::id()) {
+            \Session::flash('message','You do not have access to edit that Task.');
+            return redirect('/');
+        }
         return view('tasks.delete')->with('task', $task);
     }
 
@@ -90,7 +98,10 @@ class TaskController extends Controller {
             \Session::flash('message','Task not found.');
             return redirect('/');
         }
-
+        if($task->user_id != \Auth::id()) {
+            \Session::flash('message','You do not have access to edit that Task.');
+            return redirect('/');
+        }
         $task->delete();
 
         \Session::flash('message',$task->description.' was deleted.');
