@@ -7,7 +7,7 @@
 Dynamic Web Applications - Project 4 (Task Manager Application).
 
 ## Demo
-<https://youtu.be/lTqyFzrJ4Gw>
+<https://youtu.be/N12Qy0kTtnU>
 
 ## Details for teaching team
 * Used bower to pull down Bootstrap dependency.
